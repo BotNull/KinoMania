@@ -5,6 +5,7 @@ import { ArrowIcon } from '@icons';
 import ItemList from '@ItemList/ItemList';
 import { updateSeason, updateEpisode } from '@redux/actions/itemAction';
 import { isObjectNested } from '@utils/objectNested';
+import Skeleton from '@components/Skeleton';
 import '@components/Movie/style.css';
 
 const Movie = ({ setIsSearch }) => {
@@ -52,7 +53,7 @@ const Movie = ({ setIsSearch }) => {
       <div className="container">
         <div className="content">
           {loading || typeof current === 'undefined' ? (
-            <h3>Загрузка...</h3>
+            <Skeleton />
           ) : (
             <>
               {isObjectNested(movie) ? (

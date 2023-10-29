@@ -1,8 +1,4 @@
-import {
-  ADD_MOVIE_SUCCESS,
-  ADD_MOVIE_STARTED,
-  ADD_MOVIE_ERROR,
-} from '@redux/actions/actionTypes';
+import types from '@redux/actions/actionTypes';
 
 const initialState = {
   loading: false,
@@ -11,12 +7,12 @@ const initialState = {
 
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MOVIE_STARTED:
+    case types.START_ADD_MOVIE:
       return {
         ...state,
         loading: true,
       };
-    case ADD_MOVIE_SUCCESS:
+    case types.ADD_MOVIE:
       return {
         ...state,
         movie: action.payload,

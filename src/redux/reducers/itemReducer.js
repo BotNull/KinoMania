@@ -1,7 +1,4 @@
-import {
-  UPDATE_CURRENT_SEASON,
-  UPDATE_CURRENT_EPISODE,
-} from '@redux/actions/actionTypes';
+import types from '@redux/actions/actionTypes';
 
 const initialState = {
   currentSeason: 0,
@@ -10,16 +7,22 @@ const initialState = {
 
 const itemReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_CURRENT_SEASON:
+    case types.UPDATE_CURRENT_SEASON:
       return {
         ...state,
         currentSeason: action.payload,
       };
-    case UPDATE_CURRENT_EPISODE:
+    case types.UPDATE_CURRENT_EPISODE:
       return {
         ...state,
         currentEpisode: action.payload,
       };
+    case types.RESET_ITEM:
+      return {
+        ...state,
+        currentEpisode: 0,
+        currentSeason: 0
+      }
     default:
       return state;
   }

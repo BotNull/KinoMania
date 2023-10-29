@@ -1,16 +1,25 @@
-import {
-  ADD_MOVIE_SUCCESS,
-  ADD_MOVIE_STARTED,
-} from '@redux/actions/actionTypes';
-import { updateEpisode, updateSeason } from '@redux/actions/itemAction';
+import types from '@redux/actions/actionTypes';
+import { resetItems } from '@redux/actions/itemAction';
 import axios from 'axios';
 import cheerio from 'cheerio';
 
+const startAddMovie = () => {
+  return {
+    type: types.START_ADD_MOVIE
+  }
+}
+
+const addMovie = obj => {
+  return {
+    type: types.ADD_MOVIE,
+    payload: obj,
+  }
+}
+
 export const fetchData = id => {
   return async dispatch => {
-    dispatch({
-      type: ADD_MOVIE_STARTED,
-    });
+    dispatch(startAddMovie());
+
     await axios
       .get('//1696854416.svetacdn.in/r0bcpkSqsjWe', {
         params: {
@@ -22,17 +31,11 @@ export const fetchData = id => {
 
         const obj = JSON.parse($('#files').val());
 
-        dispatch({
-          type: ADD_MOVIE_SUCCESS,
-          payload: obj,
-        });
-        dispatch(updateEpisode(0));
-        dispatch(updateSeason(0));
+        dispatch(addMovie(obj));
+        dispatch(resetItems())
       })
-      .catch(err => {
-        dispatch({
-          type: ADD_MOVIE_STARTED,
-        });
+      .catch(() => {
+        dispatch(startAddMovie());
       });
   };
 };
