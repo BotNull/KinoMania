@@ -1,0 +1,23 @@
+.items {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.item {
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 590;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.item.active {
+  color: #000;
+  background: #fff;
+  cursor: default;
+}

@@ -1,0 +1,80 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  max-width: 610px;
+}
+
+.title p {
+  color: #adadad;
+  font-size: 22px;
+}
+
+.title h1 {
+  color: #fff;
+  font-size: 52px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title h1 span {
+  background: linear-gradient(91.03deg, #89b8ff 4.02%, #213dd1 26.85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: blue;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  margin-top: 80px;
+  background: #212e3f;
+  border-radius: 36px;
+}
+
+.icon {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 16px;
+}
+
+.form input {
+  color: #fff;
+  width: 100%;
+  height: 64px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .page {
+    justify-content: stretch;
+    margin-top: 100px;
+  }
+
+  .title h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .title p {
+    font-size: 18px;
+  }
+
+  .form {
+    margin-top: 40px;
+  }
+}
